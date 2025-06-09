@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>تصميم لوقو احترافي - NILBORN</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to left, #e3f2fd, #ffffff);
+      color: #1a237e;
+    }
+    header {
+      text-align: center;
+      background-color: #2196f3;
+      color: white;
+      padding: 30px 10px 10px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #0d47a1;
+    }
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1e88e5;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background-color: #1565c0;
+    }
+    .input-field {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .plan {
+      border: 2px solid #2196f3;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎨 خدمة تصميم اللوقو</h1>
+    <p>احصل على لوقو احترافي يعبر عن علامتك التجارية</p>
+  </header>
+
+  <div class="container">
+
+    <div class="section">
+      <h2>💡 اختر الباقة المناسبة لك</h2>
+
+      <div class="plan">
+        <h3>الباقة الاقتصادية - 5$</h3>
+        <ul>
+          <li>لوقو بسيط بفكرة واحدة</li>
+          <li>تسليم خلال 2 أيام</li>
+          <li>تعديل واحد فقط</li>
+        </ul>
+        <input class="input-field" id="name" placeholder="👤 اسمك الكامل" />
+        <input class="input-field" id="note" placeholder="📝 ملاحظاتك" />
+        <input class="input-field" id="code1" placeholder="🔑 كود الخصم (اختياري)" />
+        <a id="send1" class="button">📤 احصل الآن</a>
+      </div>
+
+      <div class="plan">
+        <h3>الباقة المتقدمة - 10$</h3>
+        <ul>
+          <li>تصميمين مختلفين للاختيار</li>
+          <li>3 تعديلات</li>
+          <li>نسخ PNG وشفافة</li>
+        </ul>
+        <input class="input-field" id="name2" placeholder="👤 اسمك الكامل" />
+        <input class="input-field" id="note2" placeholder="📝 ملاحظاتك" />
+        <input class="input-field" id="code2" placeholder="🔑 كود الخصم (اختياري)" />
+        <a id="send2" class="button">📤 احصل الآن</a>
+      </div>
+
+      <div class="plan">
+        <h3>الباقة المتكاملة - 20$</h3>
+        <ul>
+          <li>4 تصاميم مختلفة للاختيار</li>
+          <li>تعديلات غير محدودة</li>
+          <li>جميع الصيغ: PNG - PSD - SVG</li>
+          <li>تسليم خلال 24 ساعة</li>
+        </ul>
+        <input class="input-field" id="name3" placeholder="👤 اسمك الكامل" />
+        <input class="input-field" id="note3" placeholder="📝 ملاحظاتك" />
+        <input class="input-field" id="code3" placeholder="🔑 كود الخصم (اختياري)" />
+        <a id="send3" class="button">📤 احصل الآن</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💳 طرق الدفع</h2>
+      <p>نقبل الدفع عبر:</p>
+      <ul>
+        <li>💸 Payeer</li>
+        <li>💰 عملات رقمية</li>
+        <li>🎁 بطاقات هدايا (Google Play, Steam, Amazon...)</li>
+      </ul>
+      <p>✅ سيتم إرسال تفاصيل الدفع بعد تأكيد الطلب عبر واتساب.</p>
+    </div>
+
+  </div>
+
+  <script>
+    const sendWhatsApp = (name, note, pack, price, code = '') => {
+      const message =
+`📌 *طلب خدمة تصميم لوقو*
+
+👤 الاسم: ${name}
+📞 رقم الهاتف: 0555374312
+💼 الباقة المختارة: ${pack} - ${price}$
+🔑 كود الخصم: ${code || "لا يوجد"}
+📝 ملاحظات إضافية: ${note}
+
+شكراً لاختيارك NILBORN! 🌟`;
+      const url = `https://wa.me/213555374312?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    };
+
+    document.getElementById("send1").onclick = () => {
+      sendWhatsApp(
+        document.getElementById("name").value,
+        document.getElementById("note").value,
+        "الباقة الاقتصادية",
+        5,
+        document.getElementById("code1").value
+      );
+    };
+
+    document.getElementById("send2").onclick = () => {
+      sendWhatsApp(
+        document.getElementById("name2").value,
+        document.getElementById("note2").value,
+        "الباقة المتقدمة",
+        10,
+        document.getElementById("code2").value
+      );
+    };
+
+    document.getElementById("send3").onclick = () => {
+      sendWhatsApp(
+        document.getElementById("name3").value,
+        document.getElementById("note3").value,
+        "الباقة المتكاملة",
+        20,
+        document.getElementById("code3").value
+      );
+    };
+  </script>
+</body>
+</html>

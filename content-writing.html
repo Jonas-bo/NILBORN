@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>خدمة كتابة المقالات</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background: #f0f4ff;
+    }
+    header {
+      text-align: center;
+      background-color: #1976d2;
+      color: white;
+      padding: 25px 10px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      padding: 20px;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #0d47a1;
+    }
+    .card p {
+      line-height: 1.8;
+    }
+    .form input, .form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .form button {
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .form button:hover {
+      background-color: #1565c0;
+    }
+    .pay-section {
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✍️ خدمة كتابة المقالات</h1>
+    <p>مقالات احترافية بأسلوب جذاب ومتوافق مع محركات البحث</p>
+  </header>
+
+  <div class="container">
+    <!-- الباقة 1 -->
+    <div class="card">
+      <h3>✍️ الباقة البسيطة - 5$</h3>
+      <p>✔ مقال 300 كلمة<br>✔ تحسين خفيف لمحركات البحث<br>✔ تسليم خلال يومين</p>
+      <div class="form">
+        <input type="text" id="name1" placeholder="👤 اسمك">
+        <textarea id="notes1" placeholder="📝 ملاحظات إضافية (اختياري)"></textarea>
+        <input type="text" id="code1" placeholder="🏷️ كود خصم (اختياري)">
+        <button onclick="sendWhatsApp('الباقة البسيطة - 5$', 'name1', 'notes1', 'code1')">📩 أحصل الآن</button>
+      </div>
+    </div>
+
+    <!-- الباقة 2 -->
+    <div class="card">
+      <h3>📈 الباقة المتقدمة - 10$</h3>
+      <p>✔ مقال 600 كلمة<br>✔ تحسين شامل لمحركات البحث<br>✔ صور حصرية<br>✔ تسليم خلال يومين</p>
+      <div class="form">
+        <input type="text" id="name2" placeholder="👤 اسمك">
+        <textarea id="notes2" placeholder="📝 ملاحظات إضافية (اختياري)"></textarea>
+        <input type="text" id="code2" placeholder="🏷️ كود خصم (اختياري)">
+        <button onclick="sendWhatsApp('الباقة المتقدمة - 10$', 'name2', 'notes2', 'code2')">📩 أحصل الآن</button>
+      </div>
+    </div>
+
+    <!-- الباقة 3 -->
+    <div class="card">
+      <h3>📝 الباقة الاحترافية - 20$</h3>
+      <p>✔ مقال 1200 كلمة<br>✔ SEO احترافي + كلمات مفتاحية<br>✔ صور + تنسيق ممتاز<br>✔ تسليم خلال 24 ساعة</p>
+      <div class="form">
+        <input type="text" id="name3" placeholder="👤 اسمك">
+        <textarea id="notes3" placeholder="📝 ملاحظات إضافية (اختياري)"></textarea>
+        <input type="text" id="code3" placeholder="🏷️ كود خصم (اختياري)">
+        <button onclick="sendWhatsApp('الباقة الاحترافية - 20$', 'name3', 'notes3', 'code3')">📩 أحصل الآن</button>
+      </div>
+    </div>
+
+    <!-- الدفع -->
+    <div class="pay-section">
+      <h3>💳 طرق الدفع:</h3>
+      <p>✅ بايير<br>✅ عملات رقمية (مثل USDT, BTC...)<br>✅ بطاقات هدايا مثل Google Play وغيرها</p>
+    </div>
+  </div>
+
+  <script>
+    function sendWhatsApp(plan, nameId, notesId, codeId) {
+      const name = document.getElementById(nameId).value.trim();
+      const notes = document.getElementById(notesId).value.trim();
+      const code = document.getElementById(codeId).value.trim();
+
+      if (!name) {
+        alert("يرجى إدخال اسمك.");
+        return;
+      }
+
+      const message =
+`📌 *طلب خدمة كتابة مقالات*
+
+👤 الاسم: ${name}
+💼 الباقة المختارة: ${plan}
+🏷️ كود الخصم: ${code || 'لا يوجد'}
+📝 ملاحظات إضافية: ${notes || 'لا توجد'}
+
+شكراً لاختيارك NILBORN! 🌟`;
+
+      const phone = "0555374312";
+      const url = "https://wa.me/213" + phone.slice(1) + "?text=" + encodeURIComponent(message);
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>NILBORN | إدارة حسابات إنستغرام</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to left, #e3f2fd, #ffffff);
+      color: #1a237e;
+    }
+    h1 {
+      text-align: center;
+      color: #0d47a1;
+    }
+    .packages {
+      max-width: 900px;
+      margin: 20px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .package {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .package h2 {
+      color: #1565c0;
+      margin-top: 0;
+    }
+    .package ul {
+      padding-right: 20px;
+      line-height: 1.5;
+      font-size: 15px;
+      color: #0d47a1;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 22px;
+      margin: 15px 0;
+      color: #1e88e5;
+    }
+    .button {
+      background-color: #1e88e5;
+      color: white;
+      padding: 12px 0;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+    .button:hover {
+      background-color: #1565c0;
+    }
+    /* النموذج */
+    #orderFormContainer {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    #orderForm {
+      background: white;
+      border-radius: 15px;
+      padding: 25px 30px;
+      width: 350px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    #orderForm h2 {
+      margin-top: 0;
+      color: #0d47a1;
+      text-align: center;
+    }
+    #orderForm label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: bold;
+      color: #1a237e;
+    }
+    #orderForm input, #orderForm textarea, #orderForm select {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 15px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    #orderForm textarea {
+      min-height: 60px;
+    }
+    #orderForm button {
+      margin-top: 20px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #orderForm button:hover {
+      background-color: #1565c0;
+    }
+    #closeFormBtn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      color: #999;
+      cursor: pointer;
+      user-select: none;
+    }
+    #closeFormBtn:hover {
+      color: #444;
+    }
+    /* تفاصيل الدفع */
+    .payment-details {
+      max-width: 900px;
+      margin: 40px auto 10px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      color: #0d47a1;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📱 إدارة حسابات إنستغرام - باقاتنا</h1>
+
+  <div class="packages">
+    <div class="package">
+      <h2>الباقة الأساسية</h2>
+      <ul>
+        <li>إدارة منشورين أسبوعيًا</li>
+        <li>تصميم صور بسيطة وجذابة</li>
+        <li>الرد على التعليقات والرسائل</li>
+      </ul>
+      <div class="price">15 دولار</div>
+      <input type="hidden" class="packageName" value="الباقة الأساسية">
+      <input type="hidden" class="packageCode" value="IG_BASIC">
+      <div class="button" onclick="openForm('الباقة الأساسية', 'IG_BASIC')">أحصل الآن</div>
+    </div>
+
+    <div class="package">
+      <h2>الباقة المتوسطة</h2>
+      <ul>
+        <li>إدارة 5 منشورات أسبوعيًا</li>
+        <li>تصميم منشورات وفيديوهات قصيرة</li>
+        <li>زيادة التفاعل والمتابعين</li>
+        <li>تقرير شهري عن الأداء</li>
+      </ul>
+      <div class="price">40 دولار</div>
+      <input type="hidden" class="packageName" value="الباقة المتوسطة">
+      <input type="hidden" class="packageCode" value="IG_MEDIUM">
+      <div class="button" onclick="openForm('الباقة المتوسطة', 'IG_MEDIUM')">أحصل الآن</div>
+    </div>
+
+    <div class="package">
+      <h2>الباقة الكاملة</h2>
+      <ul>
+        <li>إدارة يومية للمنشورات والقصص</li>
+        <li>تصميم متقدم للصور والفيديوهات</li>
+        <li>إعلانات مدفوعة وتحليل النتائج</li>
+        <li>دعم مباشر 24/7</li>
+      </ul>
+      <div class="price">80 دولار</div>
+      <input type="hidden" class="packageName" value="الباقة الكاملة">
+      <input type="hidden" class="packageCode" value="IG_FULL">
+      <div class="button" onclick="openForm('الباقة الكاملة', 'IG_FULL')">أحصل الآن</div>
+    </div>
+  </div>
+
+  <div class="payment-details">
+    <h2>طرق الدفع</h2>
+    <p>يمكنك الدفع عبر:</p>
+    <ul>
+      <li>بايير (Payeer)</li>
+      <li>عملات رقمية (مثل بيتكوين، إثريوم، وغيرها)</li>
+      <li>بطاقات هدايا (مثل بطاقات Google Play، بطاقات متجر التطبيقات، وغيرها)</li>
+    </ul>
+    <p>نفس سعر الباقة مهما كانت طريقة الدفع.</p>
+  </div>
+
+  <!-- نموذج الطلب -->
+  <div id="orderFormContainer">
+    <form id="orderForm" onsubmit="sendOrder(event)">
+      <div id="closeFormBtn" onclick="closeForm()">×</div>
+      <h2>طلب الخدمة</h2>
+
+      <label for="name">الاسم الكامل:</label>
+      <input type="text" id="name" placeholder="اكتب اسمك هنا" required />
+
+      <label for="phone">رقم الهاتف:</label>
+      <input type="tel" id="phone" placeholder="مثال: 0555123456" required />
+
+      <label for="packageCode">الباقة المختارة:</label>
+      <input type="text" id="selectedPackage" readonly style="background:#eee; border:none; padding:8px; font-weight:bold;" />
+
+      <label for="packageCode">كود الباقة:</label>
+      <input type="text" id="packageCode" readonly style="background:#eee; border:none; padding:8px; font-weight:bold;" />
+
+      <label for="notes">ملاحظات إضافية:</label>
+      <textarea id="notes" placeholder="أكتب أي تفاصيل إضافية تريدنا معرفتها"></textarea>
+
+      <button type="submit">إرسال الطلب عبر واتساب</button>
+    </form>
+  </div>
+
+<script>
+  // فتح النموذج مع تعبئة بيانات الباقة
+  function openForm(packageName, packageCode) {
+    document.getElementById('selectedPackage').value = packageName;
+    document.getElementById('packageCode').value = packageCode;
+    document.getElementById('orderFormContainer').style.display = 'flex';
+  }
+
+  // إغلاق النموذج
+  function closeForm() {
+    document.getElementById('orderFormContainer').style.display = 'none';
+    document.getElementById('orderForm').reset();
+  }
+
+  // إرسال الطلب عبر واتساب
+  function sendOrder(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const packageName = document.getElementById('selectedPackage').value;
+    const packageCode = document.getElementById('packageCode').value;
+    const notes = document.getElementById('notes').value.trim();
+
+    if (!name || !phone) {
+      alert('يرجى تعبئة الاسم ورقم الهاتف.');
+      return;
+    }
+
+    // تكوين رسالة واتساب
+    const message =
+      `📌 *طلب خدمة إدارة إنستغرام*\n\n` +
+      `👤 الاسم: ${name}\n` +
+      `📞 رقم الهاتف: ${phone}\n` +
+      `💼 الباقة المختارة: ${packageName} - كود: ${packageCode}\n` +
+      `📝 ملاحظات إضافية:\n${notes || 'لا توجد'}\n\n` +
+      `شكراً لاختيارك NILBORN! 🌟`;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    // رقم واتساب الخاص بك مع رمز الدولة بدون +
+    const whatsappNumber = "213555374312";
+
+    // فتح واتساب مع الرسالة
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, '_blank');
+
+    // إغلاق النموذج بعد الإرسال
+    closeForm();
+  }
+</script>
+
+</body>
+</html>

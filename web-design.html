@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>تصميم المواقع | NILBORN</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to left, #e3f2fd, #ffffff);
+      color: #1a237e;
+    }
+    header {
+      text-align: center;
+      background-color: #2196f3;
+      color: white;
+      padding: 30px 10px 10px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #0d47a1;
+    }
+    p, li {
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1e88e5;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #1565c0;
+    }
+    .plan-title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💻 خدمات تصميم المواقع</h1>
+  <p>اختر الباقة المناسبة واطلب الآن بكل سهولة!</p>
+</header>
+
+<div class="container">
+  <!-- الباقات -->
+  <div class="section">
+    <h2>📦 الباقات المتوفرة</h2>
+
+    <div class="section">
+      <p class="plan-title">✅ الباقة البسيطة – 15$</p>
+      <ul>
+        <li>تصميم صفحة واحدة</li>
+        <li>تصميم متجاوب للهاتف والكمبيوتر</li>
+        <li>رابط مخصص</li>
+        <li>زر تواصل واتساب</li>
+        <li>مدة الإنجاز: 1-2 يوم</li>
+      </ul>
+      <button onclick="showForm('بسيطة')" class="button">أحصل الآن</button>
+    </div>
+
+    <div class="section">
+      <p class="plan-title">⭐ الباقة المتقدمة – 35$</p>
+      <ul>
+        <li>تصميم حتى 3 صفحات</li>
+        <li>نموذج تواصل</li>
+        <li>تصميم جذاب وسريع</li>
+        <li>عرض خدمات أو منتجات</li>
+        <li>مدة الإنجاز: 2-3 أيام</li>
+      </ul>
+      <button onclick="showForm('متقدمة')" class="button">أحصل الآن</button>
+    </div>
+
+    <div class="section">
+      <p class="plan-title">🚀 الباقة الاحترافية – 60$</p>
+      <ul>
+        <li>تصميم حتى 5 صفحات</li>
+        <li>عرض خدمات، معرض صور، تواصل، تقييمات</li>
+        <li>سرعة تحميل ممتازة</li>
+        <li>تصميم مخصص حسب الطلب</li>
+        <li>مدة الإنجاز: 3-5 أيام</li>
+      </ul>
+      <button onclick="showForm('احترافية')" class="button">أحصل الآن</button>
+    </div>
+
+    <div class="section">
+      <p class="plan-title">🏆 الباقة المتكاملة – 80$</p>
+      <ul>
+        <li>تصميم شامل (أكثر من 5 صفحات)</li>
+        <li>نموذج طلب، معرض، خدمات، مدونة، صفحة من نحن</li>
+        <li>تصميم احترافي متقدم</li>
+        <li>تسليم الكود والملفات</li>
+        <li>مدة الإنجاز: 5-7 أيام</li>
+      </ul>
+      <button onclick="showForm('المتكاملة')" class="button">أحصل الآن</button>
+    </div>
+  </div>
+
+  <!-- طرق الدفع -->
+  <div class="section">
+    <h2>💳 طرق الدفع</h2>
+    <p>الدفع يتم عبر الطرق التالية:</p>
+    <ul>
+      <li>💰 بايير (Payeer)</li>
+      <li>🪙 عملات رقمية (USDT - BTC - ETH وغيرها)</li>
+      <li>🎁 بطاقات هدايا مثل Google Play, Apple, وغيرها بنفس السعر</li>
+    </ul>
+  </div>
+
+  <!-- نموذج الطلب -->
+  <div id="formArea" style="display:none;" class="section">
+    <h2>📌 نموذج طلب الخدمة</h2>
+    <label>👤 الاسم:</label><br>
+    <input type="text" id="name" placeholder="اكتب اسمك" required style="width:100%; padding:8px; margin-bottom:10px;"><br>
+
+    <label>🎯 كود الخصم (اختياري):</label><br>
+    <input type="text" id="discount" placeholder="مثلاً: NIL20" style="width:100%; padding:8px; margin-bottom:10px;"><br>
+
+    <label>📝 ملاحظات إضافية:</label><br>
+    <textarea id="info" placeholder="اكتب أي تفاصيل تريدها..." style="width:100%; padding:8px; height:100px;"></textarea><br>
+
+    <button onclick="sendWhatsApp()" class="button">📤 إرسال عبر واتساب</button>
+  </div>
+</div>
+
+<script>
+  let selectedPlan = "";
+  function showForm(plan) {
+    selectedPlan = plan;
+    document.getElementById("formArea").style.display = "block";
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+  function sendWhatsApp() {
+    const name = document.getElementById("name").value;
+    const info = document.getElementById("info").value;
+    const code = document.getElementById("discount").value;
+    const phoneNumber = "0555374312";
+
+    let price = "";
+    if (selectedPlan === "بسيطة") price = "15$";
+    else if (selectedPlan === "متقدمة") price = "35$";
+    else if (selectedPlan === "احترافية") price = "60$";
+    else if (selectedPlan === "المتكاملة") price = "80$";
+    else price = "غير محدد";
+
+    const message = `📌 *طلب خدمة تصميم موقع*\n\n👤 الاسم: ${name}\n💼 الباقة المختارة: الباقة ${selectedPlan} - ${price}\n🎯 كود الخصم: ${code || "لا يوجد"}\n📝 ملاحظات إضافية:\n${info}\n\nشكراً لاختيارك NILBORN! 🌟`;
+
+    const waUrl = `https://wa.me/213${phoneNumber.slice(1)}?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, "_blank");
+  }
+</script>
+
+</body>
+</html>
