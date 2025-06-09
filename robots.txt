@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jonas-bo.github.io/NILBORN/sitemap-main.xml
